@@ -3,62 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Персональная страница Дани — менторство." />
-    <title>Даня — ментор</title>
+    <meta name="description" content="Даня — QA-ментор." />
+    <title>Даня — QA-ментор</title>
     <style>
-      :root {
-        color-scheme: light;
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", sans-serif;
-        background: #f7f6f2;
-        color: #1c1c1a;
-      }
-
-      * { box-sizing: border-box; }
-
-      body {
-        min-height: 100vh;
-        margin: 0;
-        display: grid;
-        place-items: center;
-        padding: 24px;
-        background:
-          radial-gradient(circle at 10% 10%, #f6d995 0, transparent 32rem),
-          radial-gradient(circle at 90% 90%, #bfe5d3 0, transparent 30rem),
-          #f7f6f2;
-      }
-
-      main {
-        width: min(100%, 760px);
-        padding: clamp(40px, 9vw, 88px);
-        border: 1px solid rgba(28, 28, 26, 0.1);
-        border-radius: 28px;
-        background: rgba(255, 255, 255, 0.72);
-        box-shadow: 0 18px 60px rgba(62, 53, 31, 0.12);
-        backdrop-filter: blur(14px);
-      }
-
-      p {
-        margin: 0 0 18px;
-        color: #66645d;
-        font-size: 1rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      h1 {
-        max-width: 8ch;
-        margin: 0;
-        font-size: clamp(3rem, 10vw, 6.8rem);
-        line-height: 0.98;
-        letter-spacing: -0.07em;
-      }
+      :root { --paper:#f6f7f8; --ink:#17202b; --muted:#5f6975; --line:#cdd3d9; --blue:#174ea6; --photo:#b9cbe1; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; background:var(--paper); color:var(--ink); }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; }
+      a { color:inherit; text-decoration-color:var(--blue); text-underline-offset:4px; }
+      a:focus-visible { outline:3px solid var(--blue); outline-offset:4px; }
+      .page { width:min(100%,1240px); min-height:100vh; margin:auto; padding:28px 32px 64px; }
+      .topline { display:flex; justify-content:space-between; gap:20px; padding-bottom:18px; border-bottom:1px solid var(--line); font-size:.9rem; }
+      .topline span:last-child { color:var(--muted); }
+      .layout { display:grid; grid-template-columns:230px minmax(0,1fr); gap:clamp(36px,7vw,112px); padding-top:clamp(52px,9vw,120px); }
+      aside { align-self:start; }
+      .name,h1,h2 { font-family:"Iowan Old Style",Baskerville,Georgia,serif; font-weight:500; letter-spacing:-.052em; }
+      .name { margin:0 0 30px; font-size:2.15rem; }
+      nav { display:grid; gap:10px; }
+      nav a { width:fit-content; color:var(--muted); text-decoration:none; }
+      nav a:hover { color:var(--blue); }
+      .hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(190px,.58fr); gap:clamp(28px,5vw,70px); align-items:end; padding-bottom:clamp(64px,11vw,142px); }
+      h1 { max-width:9ch; margin:0; font-size:clamp(3.5rem,8.4vw,7.6rem); line-height:.9; }
+      .intro { max-width:28rem; margin:30px 0 0; color:var(--muted); font-size:clamp(1.05rem,1.7vw,1.32rem); line-height:1.55; }
+      .portrait { position:relative; min-height:340px; overflow:hidden; background:var(--photo); }
+      .portrait::before,.portrait::after { position:absolute; content:""; border-radius:50%; }
+      .portrait::before { width:150px; height:150px; top:64px; left:calc(50% - 75px); background:#eef3f8; }
+      .portrait::after { width:245px; height:195px; bottom:-76px; left:calc(50% - 122px); background:var(--blue); }
+      .portrait p { position:absolute; z-index:1; right:14px; bottom:14px; margin:0; padding:7px 9px; background:var(--paper); font-size:.76rem; }
+      section { display:grid; grid-template-columns:minmax(150px,.36fr) minmax(0,1fr); gap:clamp(28px,5vw,70px); padding:clamp(50px,7vw,88px) 0; border-top:1px solid var(--line); }
+      h2 { margin:0; color:var(--blue); font-size:clamp(1.8rem,3.5vw,3rem); line-height:1; }
+      .content { max-width:650px; }
+      .content > p:first-child { margin-top:0; font-size:clamp(1.22rem,2vw,1.68rem); line-height:1.42; }
+      p { color:var(--muted); line-height:1.6; }
+      .list { display:grid; gap:0; margin:30px 0 0; padding:0; list-style:none; border-top:1px solid var(--line); }
+      .list li { padding:16px 0; border-bottom:1px solid var(--line); font-size:1.06rem; line-height:1.4; }
+      .steps { counter-reset:step; }
+      .steps li { display:grid; grid-template-columns:28px 1fr; gap:12px; }
+      .steps li::before { counter-increment:step; content:counter(step); color:var(--blue); font-family:Georgia,serif; }
+      footer { display:flex; justify-content:space-between; gap:20px; padding-top:24px; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; }
+      @media (max-width:720px) { .page { padding:20px 20px 48px; } .layout { display:block; padding-top:54px; } aside { margin-bottom:58px; } .name { margin-bottom:18px; } nav { display:flex; flex-wrap:wrap; gap:10px 18px; } .hero,section { grid-template-columns:1fr; } .portrait { min-height:290px; max-width:370px; } section { gap:18px; } .topline span:last-child { display:none; } }
+      @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
     </style>
   </head>
   <body>
-    <main>
-      <p>Менторство</p>
-      <h1>Привет!<br />Я Даня</h1>
-    </main>
+    <div class="page">
+      <header class="topline"><span>Даня — QA-ментор</span><span>Разбираемся. Выбираем направление. Делаем шаг.</span></header>
+      <div class="layout">
+        <aside>
+          <p class="name">Привет,<br />я Даня.</p>
+          <nav aria-label="Разделы страницы"><a href="#about">О себе</a><a href="#for-whom">Кому подойдёт</a><a href="#process">Как это устроено</a><a href="#help">С чем помогу</a></nav>
+        </aside>
+        <main>
+          <section class="hero" aria-labelledby="hello">
+            <div><h1 id="hello">Менторство для тех, кто хочет расти в QA.</h1><p class="intro">Без универсальных советов и лишней теории. Разберём вашу точку, наметим следующий шаг и доведём его до результата.</p></div>
+            <!-- Замените этот блок на img с портретом, когда добавите фотографию. -->
+            <div class="portrait" role="img" aria-label="Место для портрета Дани"><p>ваше фото здесь</p></div>
+          </section>
+          <section id="about"><h2>О себе</h2><div class="content"><p>Я Даня, QA-специалист и ментор. Помогаю сделать профессию понятнее: от первого плана обучения до уверенности в сложных рабочих задачах.</p><p>На встречах мы не ищем «правильный путь». Смотрим на ваш опыт, цели и ограничения — и собираем реалистичный маршрут роста.</p></div></section>
+          <section id="for-whom"><h2>Кому это подойдёт</h2><div class="content"><p>Тем, кому важна не лекция, а внимательный разбор своей ситуации.</p><ul class="list"><li>Начинаете путь в тестировании и не знаете, за что взяться.</li><li>Уже работаете в QA, но хотите перейти на следующий уровень.</li><li>Готовитесь к собеседованиям и хотите говорить о своём опыте увереннее.</li><li>Чувствуете, что застряли, и нужен честный взгляд со стороны.</li></ul></div></section>
+          <section id="process"><h2>Как это устроено</h2><div class="content"><p>Никакого курса «для всех». Работа строится вокруг вашей задачи.</p><ol class="list steps"><li>Созваниваемся и формулируем, к чему вы хотите прийти.</li><li>Разбираем опыт, пробелы и то, что уже хорошо работает.</li><li>Собираем план с конкретными действиями до следующей встречи.</li><li>Проверяем прогресс, корректируем курс и идём дальше.</li></ol></div></section>
+          <section id="help"><h2>С чем могу помочь</h2><div class="content"><p>Выбираем одну актуальную цель и превращаем её в понятные действия.</p><ul class="list"><li>Составить план развития в QA и не перегрузить себя.</li><li>Подготовиться к техническому интервью или смене роли.</li><li>Разобрать рабочую ситуацию, которая не даёт двигаться дальше.</li><li>Получить обратную связь на резюме, портфолио или учебный план.</li></ul></div></section>
+        </main>
+      </div>
+      <footer><span>Даня, QA-ментор</span><span>Напишите, когда будете готовы начать.</span></footer>
+    </div>
   </body>
 </html>
