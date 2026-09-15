@@ -3,71 +3,131 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Даня — AQA-ментор. Помогаю начать путь в QA и подготовиться к поиску работы." />
+    <meta name="description" content="Менторство с Даней: путь в QA, практика и подготовка к поиску первой работы." />
     <title>Даня — AQA-ментор</title>
     <style>
-      :root { --paper:#f6f7f8; --ink:#17202b; --muted:#5f6975; --line:#cdd3d9; --blue:#174ea6; --photo:#b9cbe1; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; background:var(--paper); color:var(--ink); }
-      * { box-sizing:border-box; }
-      html { scroll-behavior:smooth; }
-      body { margin:0; }
-      a { color:inherit; text-decoration-color:var(--blue); text-underline-offset:4px; }
-      a:focus-visible { outline:3px solid var(--blue); outline-offset:4px; }
-      .page { width:min(100%,1240px); min-height:100vh; margin:auto; padding:28px 32px 64px; }
-      .topline { display:flex; justify-content:space-between; gap:20px; padding-bottom:18px; border-bottom:1px solid var(--line); font-size:.9rem; }
-      .topline span:last-child { color:var(--muted); }
-      .layout { display:grid; grid-template-columns:230px minmax(0,1fr); gap:clamp(36px,7vw,112px); padding-top:clamp(52px,9vw,120px); }
-      aside { align-self:start; }
-      .name,h1,h2 { font-family:"Iowan Old Style",Baskerville,Georgia,serif; font-weight:500; letter-spacing:-.052em; }
-      .name { margin:0 0 30px; font-size:2.15rem; }
-      nav { display:grid; gap:10px; }
-      nav a { width:fit-content; color:var(--muted); text-decoration:none; }
-      nav a:hover { color:var(--blue); }
-      .hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(190px,.58fr); gap:clamp(28px,5vw,70px); align-items:end; padding-bottom:clamp(64px,11vw,142px); }
-      h1 { max-width:9ch; margin:0; font-size:clamp(3.5rem,8.4vw,7.6rem); line-height:.9; }
-      .intro { max-width:28rem; margin:30px 0 0; color:var(--muted); font-size:clamp(1.05rem,1.7vw,1.32rem); line-height:1.55; }
-      .cta { display:inline-block; margin-top:26px; padding:12px 16px; background:var(--blue); color:white; text-decoration:none; }
-      .cta:hover { background:#113c82; }
-      .portrait { position:relative; min-height:340px; overflow:hidden; background:var(--photo); }
-      .portrait::before,.portrait::after { position:absolute; content:""; border-radius:50%; }
-      .portrait::before { width:150px; height:150px; top:64px; left:calc(50% - 75px); background:#eef3f8; }
-      .portrait::after { width:245px; height:195px; bottom:-76px; left:calc(50% - 122px); background:var(--blue); }
-      .portrait p { position:absolute; z-index:1; right:14px; bottom:14px; margin:0; padding:7px 9px; background:var(--paper); font-size:.76rem; }
-      section { display:grid; grid-template-columns:minmax(150px,.36fr) minmax(0,1fr); gap:clamp(28px,5vw,70px); padding:clamp(50px,7vw,88px) 0; border-top:1px solid var(--line); }
-      h2 { margin:0; color:var(--blue); font-size:clamp(1.8rem,3.5vw,3rem); line-height:1; }
-      .content { max-width:650px; }
-      .content > p:first-child { margin-top:0; font-size:clamp(1.22rem,2vw,1.68rem); line-height:1.42; }
-      p { color:var(--muted); line-height:1.6; }
-      .list { display:grid; gap:0; margin:30px 0 0; padding:0; list-style:none; border-top:1px solid var(--line); }
-      .list li { padding:16px 0; border-bottom:1px solid var(--line); font-size:1.06rem; line-height:1.4; }
-      .steps { counter-reset:step; }
-      .steps li { display:grid; grid-template-columns:28px 1fr; gap:12px; }
-      .steps li::before { counter-increment:step; content:counter(step); color:var(--blue); font-family:Georgia,serif; }
-      footer { display:flex; justify-content:space-between; gap:20px; padding-top:24px; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; }
-      @media (max-width:720px) { .page { padding:20px 20px 48px; } .layout { display:block; padding-top:54px; } aside { margin-bottom:58px; } .name { margin-bottom:18px; } nav { display:flex; flex-wrap:wrap; gap:10px 18px; } .hero,section { grid-template-columns:1fr; } .portrait { min-height:290px; max-width:370px; } section { gap:18px; } .topline span:last-child { display:none; } }
-      @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+      :root {
+        --night: #121b58;
+        --blue: #2747e8;
+        --sky: #b9c9ff;
+        --lime: #d9ff54;
+        --paper: #f5f5f1;
+        --ink: #10142e;
+        --rule: rgba(16, 20, 46, 0.18);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: var(--paper);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; }
+      a { color: inherit; }
+      a:focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
+
+      .shell { width: min(100%, 1360px); margin: auto; }
+      .hero { min-height: min(840px, 100vh); padding: 24px clamp(22px, 4vw, 60px) 48px; color: white; background: var(--night); }
+      .topbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; font-size: .92rem; }
+      .brand { font-weight: 700; letter-spacing: -.03em; text-decoration: none; }
+      .topbar a:not(.brand) { text-decoration-color: var(--lime); text-underline-offset: 5px; }
+
+      .hero-grid { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(280px, .82fr); gap: clamp(34px, 6vw, 92px); align-items: end; min-height: calc(min(840px, 100vh) - 98px); padding-top: 58px; }
+      .kicker { margin: 0 0 20px; color: var(--lime); font-size: .95rem; }
+      h1, h2, h3 { font-family: "Iowan Old Style", Baskerville, Georgia, serif; font-weight: 500; letter-spacing: -.06em; }
+      h1 { max-width: 9ch; margin: 0; font-size: clamp(4.3rem, 9.4vw, 9rem); line-height: .83; }
+      .hero-copy { max-width: 31rem; margin: 34px 0 0; color: var(--sky); font-size: clamp(1.08rem, 1.6vw, 1.34rem); line-height: 1.48; }
+      .cta { display: inline-block; margin-top: 30px; padding: 15px 20px; background: var(--lime); color: var(--ink); font-weight: 700; text-decoration: none; transition: transform .18s ease, background .18s ease; }
+      .cta:hover { transform: translateY(-3px); background: white; }
+
+      .hero-image { position: relative; min-height: 470px; overflow: hidden; background: var(--blue); }
+      .hero-image img { display: block; width: 100%; height: 100%; min-height: 470px; object-fit: cover; mix-blend-mode: luminosity; filter: contrast(1.15) brightness(.85); }
+      .hero-image::after { position: absolute; inset: 0; content: ""; background: linear-gradient(145deg, rgba(39, 71, 232, .2), rgba(18, 27, 88, .38)); mix-blend-mode: color; }
+      .image-note { position: absolute; z-index: 1; right: 14px; bottom: 14px; max-width: 13rem; margin: 0; padding: 9px 11px; background: var(--lime); color: var(--ink); font-size: .78rem; line-height: 1.25; }
+
+      .jump { display: flex; flex-wrap: wrap; gap: 11px 22px; padding: 20px clamp(22px, 4vw, 60px); border-bottom: 1px solid var(--rule); font-size: .94rem; }
+      .jump a { text-underline-offset: 4px; }
+
+      main { padding: 0 clamp(22px, 4vw, 60px); }
+      section { display: grid; grid-template-columns: minmax(180px, .42fr) minmax(0, 1fr); gap: clamp(28px, 7vw, 126px); padding: clamp(62px, 10vw, 140px) 0; border-bottom: 1px solid var(--rule); }
+      h2 { margin: 0; color: var(--blue); font-size: clamp(2.5rem, 5vw, 5.1rem); line-height: .9; }
+      .lead { max-width: 43rem; margin: 0; font-family: "Iowan Old Style", Baskerville, Georgia, serif; font-size: clamp(1.7rem, 3.3vw, 3.55rem); line-height: 1.03; letter-spacing: -.045em; }
+      .text { max-width: 42rem; font-size: 1.05rem; line-height: 1.65; }
+      .text p { margin: 24px 0 0; }
+
+      .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 42px; background: var(--rule); }
+      .fact { min-height: 135px; padding: 19px; background: var(--paper); }
+      .fact strong { display: block; color: var(--blue); font-size: 1.45rem; line-height: 1; }
+      .fact span { display: block; margin-top: 9px; font-size: .88rem; line-height: 1.35; }
+
+      .list { margin: 36px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+      .list li { display: grid; grid-template-columns: 2.2rem 1fr; gap: 14px; padding: 17px 0; border-bottom: 1px solid var(--rule); font-size: clamp(1.04rem, 1.6vw, 1.25rem); line-height: 1.35; }
+      .list li::before { color: var(--blue); font-family: Georgia, serif; font-size: 1.2rem; }
+      .checks li::before { content: "✓"; }
+      .steps { counter-reset: step; }
+      .steps li::before { counter-increment: step; content: "0" counter(step); }
+
+      .close { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 22px; align-items: end; padding: clamp(64px, 11vw, 150px) clamp(22px, 4vw, 60px); color: white; background: var(--blue); }
+      .close h2 { max-width: 10ch; margin: 0; color: white; font-size: clamp(3.3rem, 7vw, 7.2rem); }
+      .close p { max-width: 23rem; margin: 20px 0 0; color: var(--sky); line-height: 1.5; }
+      .close .cta { margin: 0; white-space: nowrap; }
+      footer { display: flex; justify-content: space-between; gap: 20px; padding: 22px clamp(22px, 4vw, 60px); background: var(--night); color: var(--sky); font-size: .9rem; }
+
+      @media (max-width: 780px) {
+        .hero { min-height: auto; }
+        .hero-grid, section, .close { grid-template-columns: 1fr; }
+        .hero-grid { min-height: auto; padding: 74px 0 12px; }
+        .hero-image, .hero-image img { min-height: 340px; }
+        .facts { grid-template-columns: 1fr; }
+        .close { align-items: start; }
+        .close .cta { width: fit-content; }
+      }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .cta { transition: none; } }
     </style>
   </head>
   <body>
-    <div class="page">
-      <header class="topline"><span>Даня — AQA-ментор</span><span>Практика, подготовка к поиску работы, поддержка.</span></header>
-      <div class="layout">
-        <aside>
-          <p class="name">Привет,<br />я Даня.</p>
-          <nav aria-label="Разделы страницы"><a href="#about">О себе</a><a href="#for-whom">Кому подойдёт</a><a href="#process">Как это устроено</a><a href="#help">С чем помогу</a></nav>
-        </aside>
-        <main>
-          <section class="hero" aria-labelledby="hello">
-            <div><h1 id="hello">Войти в QA и уверенно найти первую работу.</h1><p class="intro">Индивидуальное менторство для тех, кто начинает путь в тестировании или готовится к поиску работы. С практикой, домашками и регулярной обратной связью.</p><a class="cta" href="https://t.me/danyaspb77">Записаться на бесплатный созвон</a></div>
-            <!-- Замените этот блок на img с портретом, когда добавите фотографию. -->
-            <div class="portrait" role="img" aria-label="Место для портрета Дани"><p>ваше фото здесь</p></div>
-          </section>
-          <section id="about"><h2>О себе</h2><div class="content"><p>Я Даня, AQA-инженер с 2,5 годами опыта. Работал с финтех- и B2C-продуктами в VK, T-Bank и Ozon Банке.</p><p>В менторстве помогаю не просто «выучить теорию», а понять, как устроена работа QA и как показать свои навыки на собеседовании.</p></div></section>
-          <section id="for-whom"><h2>Кому это подойдёт</h2><div class="content"><p>Тем, кому нужен понятный маршрут и человек, с которым можно разобрать сложные вопросы по дороге.</p><ul class="list"><li>Начинаете с нуля и хотите разобраться, подходит ли вам QA.</li><li>Ищете первую работу и хотите подготовиться к интервью без хаоса.</li><li>Хотите улучшить резюме и честно упаковать свой опыт.</li><li>Нужна тренировка перед собеседованием и обратная связь по ответам.</li></ul></div></section>
-          <section id="process"><h2>Как это устроено</h2><div class="content"><p>Работаем вокруг вашей цели: от первого плана до подготовки к реальному поиску работы.</p><ol class="list steps"><li>Начинаем с бесплатного созвона: знакомимся, определяем цель и формат.</li><li>Созваниваемся еженедельно, разбираем вопросы и следующий шаг.</li><li>Закрепляем знания домашними заданиями и проектом для практики.</li><li>Проводим два мок-собеседования и дорабатываем слабые места.</li></ol></div></section>
-          <section id="help"><h2>С чем могу помочь</h2><div class="content"><p>Выбираем одну актуальную цель и превращаем её в понятные действия.</p><ul class="list"><li>Построить путь в QA с нуля.</li><li>Подготовиться к поиску первой работы.</li><li>Провести прожарку резюме и сделать его яснее для рекрутера.</li><li>Провести консультацию или мок-собеседование.</li></ul></div></section>
-        </main>
-      </div>
-      <footer><span>Даня, AQA-ментор</span><a href="https://t.me/danyaspb77">@danyaspb77 в Telegram</a></footer>
+    <div class="shell">
+      <header class="hero">
+        <div class="topbar"><a class="brand" href="#top">Даня / AQA-ментор</a><a href="https://t.me/danyaspb77">@danyaspb77 в Telegram</a></div>
+        <div class="hero-grid" id="top">
+          <div>
+            <p class="kicker">Индивидуальное менторство по QA</p>
+            <h1>Начни путь в QA без хаоса.</h1>
+            <p class="hero-copy">Разберём, что учить, как практиковаться и как готовиться к первой работе. На связи не только во время созвонов.</p>
+            <a class="cta" href="https://t.me/danyaspb77">Записаться на бесплатный созвон</a>
+          </div>
+          <figure class="hero-image">
+            <img src="https://images.unsplash.com/photo-1753715613831-9e48eac86813?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="Рабочее место разработчика: код на мониторе и заметки в блокноте" />
+            <figcaption class="image-note">Практика важнее бесконечных лекций.</figcaption>
+          </figure>
+        </div>
+      </header>
+
+      <nav class="jump" aria-label="Разделы страницы"><a href="#about">Обо мне</a><a href="#for-whom">Кому подойдёт</a><a href="#process">Как работаем</a><a href="#help">С чем помогу</a></nav>
+
+      <main>
+        <section id="about">
+          <h2>Не курс.<br />Работа вместе.</h2>
+          <div><p class="lead">Я Даня, AQA-инженер. Помогу собрать траекторию к первой работе в тестировании.</p><div class="text"><p>У меня 2,5 года опыта в финтех- и B2C-продуктах: VK, T-Bank и Ozon Банк. На менторстве разбираем не абстрактную программу, а вашу ситуацию и ближайшую цель.</p></div><div class="facts"><div class="fact"><strong>2,5 года</strong><span>опыта в AQA</span></div><div class="fact"><strong>Финтех</strong><span>и B2C-продукты</span></div><div class="fact"><strong>1:1</strong><span>в фокусе ваша задача</span></div></div></div>
+        </section>
+
+        <section id="for-whom">
+          <h2>Кому<br />подойдёт</h2>
+          <div><p class="lead">Тем, кому нужен понятный следующий шаг, а не ещё один список видео.</p><ul class="list checks"><li>Начинаете с нуля и хотите понять, как устроен вход в QA.</li><li>Готовитесь к поиску первой работы и собеседованиям.</li><li>Хотите сделать резюме яснее и честно упаковать свой опыт.</li><li>Нужна безопасная тренировка перед настоящим интервью.</li></ul></div>
+        </section>
+
+        <section id="process">
+          <h2>Как<br />работаем</h2>
+          <div><p class="lead">Регулярно, с практикой и временем на ваши вопросы.</p><ol class="list steps"><li>Бесплатно знакомимся, определяем цель и исходную точку.</li><li>Созваниваемся раз в неделю и планируем следующий шаг.</li><li>Закрепляем навыки домашними заданиями и проектом.</li><li>Проводим два мок-собеседования, разбираем ответы и дорабатываем слабые места.</li></ol></div>
+        </section>
+
+        <section id="help">
+          <h2>С чем<br />помогу</h2>
+          <div><p class="lead">Не обещаю магического оффера. Помогаю стать к нему готовее.</p><ul class="list checks"><li>Собрать реалистичный план входа в QA.</li><li>Подготовиться к поиску первой работы.</li><li>Провести прожарку резюме.</li><li>Провести консультацию или мок-собеседование.</li></ul></div>
+        </section>
+      </main>
+
+      <section class="close"><div><h2>Первая встреча — бесплатно.</h2><p>Напишите в Telegram: познакомимся, обсудим вашу задачу и поймём, подходим ли мы друг другу.</p></div><a class="cta" href="https://t.me/danyaspb77">Написать Дане</a></section>
+      <footer><span>Даня, AQA-ментор</span><a href="https://t.me/danyaspb77">Telegram @danyaspb77</a></footer>
     </div>
   </body>
 </html>
